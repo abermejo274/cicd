@@ -23,7 +23,7 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: "nginx-app"
+  name: "nginxapp"
 
 podAnnotations: {}
 podLabels: {}
@@ -41,7 +41,7 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 8081
+  port: 80
 
 ingress:
   enabled: false
