@@ -1,3 +1,3 @@
 FROM nginx:alpine
-WORKDIR /usr/share/nginx/html
-COPY main.html main.html
+COPY main.html /usr/share/nginx/html
+COPY default.conf /etc/nginx/conf.d
