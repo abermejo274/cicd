@@ -40,34 +40,20 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: NodePort
+  type: LoadBalancer
   port: 80
 
 ingress:
   enabled: false
   className: ""
-  annotations: {
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-  }
+  annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: 10.0.14.174
+    - host: chart-example.local
       paths:
         - path: /
-          pathType: Prefix
-          backend:
-              service:
-                name: nginx-chart
-                port:
-                  number: 80
-        - path: /main
-          pathType: Prefix
-          backend:
-              service:
-                name: nginx-chart
-                port:
-                  number: 80
+          pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
